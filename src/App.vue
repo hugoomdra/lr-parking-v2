@@ -29,7 +29,6 @@ async function fetchData() {
     response.value = {
       data: {...values}
     }
-    console.log(response)
   } else {
     try{
     response.value = await axios.get(url, {
@@ -39,7 +38,6 @@ async function fetchData() {
       'Access-Control-Allow-Credentials':true,
     }
   })
-  console.log(response.data)
   }catch(e){
     console.log(e)
   }
