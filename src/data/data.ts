@@ -1,4 +1,4 @@
-export const data = {
+export const values = {
   parameters: {
     dataset: "parking___places_disponibles_en_temps_reel",
     facet: "id",

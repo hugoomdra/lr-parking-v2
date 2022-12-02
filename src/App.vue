@@ -15,7 +15,7 @@
 
 import axios from 'axios'
 import { ref } from 'vue';
-import { data } from './../data/data.js'
+import { values } from './data/data'
 
 const url = "https://api.agglo-larochelle.fr/production/opendata/api/records/1.0/search/dataset=parking___places_disponibles_en_temps_reel&facet=id"
 
@@ -27,7 +27,7 @@ const response = ref()
 async function fetchData() {
   if(env === "TEST") {
     response.value = {
-      data: {...data}
+      data: {...values}
     }
     console.log(response)
   } else {
