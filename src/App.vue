@@ -7,7 +7,7 @@
   <p v-if="response" ><span style="font-weight: bold;">{{ value.fields.nom }}</span> : {{ value.fields.nb_places_disponibles }}/{{value.fields.nb_places}}</p>
 </div>
 
-<p>made by mdramedia </p>
+<p>made by mdramedia</p>
 
 </template>
 
@@ -17,15 +17,16 @@ import axios from 'axios'
 import { ref } from 'vue';
 import { values } from './data/data'
 
-const url = "https://api.agglo-larochelle.fr/production/opendata/api/records/1.0/search/dataset=parking___places_disponibles_en_temps_reel&facet=id"
+const url = "https://api.agglo-larochelle.fr/production/opendata/api/records/1.0/search/dataset=parking___places_disponibles_en_temps_reel&rows=1000&facet=id"
+// const url = "http://localhost:3000/data_parking"
 
-const env = "TEST"
+const env = "PROD"
 
 
 const response = ref()
 
 async function fetchData() {
-  if(env === "TEST") {
+  if((env === "TEST")) {
     response.value = {
       data: {...values}
     }
@@ -36,8 +37,9 @@ async function fetchData() {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
       'Access-Control-Allow-Credentials':true,
+      'Access-Control-Allow-Headers':'X-Requested-With,content-type',
     }
-  })
+  }).then(res => console.log(res.data))
   }catch(e){
     console.log(e)
   }
