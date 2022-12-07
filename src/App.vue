@@ -20,7 +20,7 @@ import { values } from './data/data'
 const url = "https://api.agglo-larochelle.fr/production/opendata/api/records/1.0/search/dataset=parking___places_disponibles_en_temps_reel&rows=1000&facet=id"
 // const url = "http://localhost:3000/data_parking"
 
-const env = "PROD"
+let env = "PROD"
 
 
 const response = ref()
