@@ -3,7 +3,7 @@ const serveStatic = require("serve-static");
 const path = require("path");
 const axios = require("axios");
 let app = express();
-app.use(serveStatic(path.join(__dirname, "dist")));
+// app.use(serveStatic(path.join(__dirname, "dist")));
 // app.use(function (req, res, next) {
 //   // Website you wish to allow to connect
 //   res.setHeader("Access-Control-Allow-Origin", "*");

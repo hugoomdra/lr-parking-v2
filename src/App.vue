@@ -18,32 +18,16 @@ import { ref } from 'vue';
 import { values } from './data/data'
 
 const url = "https://api.agglo-larochelle.fr/production/opendata/api/records/1.0/search/dataset=parking___places_disponibles_en_temps_reel&rows=1000&facet=id"
-// const url = "http://localhost:3000/data_parking"
-
-let env = "PROD"
-
 
 const response = ref()
 
 async function fetchData() {
-  if((env === "TEST")) {
-    response.value = {
-      data: {...values}
-    }
-  } else {
     try{
-    response.value = await axios.get(url, {
-      headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-      'Access-Control-Allow-Credentials':true,
-      'Access-Control-Allow-Headers':'X-Requested-With,content-type',
-    }
-  }).then(res => console.log(res.data))
+    response.value = await axios.get(url)
   }catch(e){
     console.log(e)
   }
-  }  
+  
 }
 
   
